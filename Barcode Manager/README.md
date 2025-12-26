@@ -11,4 +11,5 @@ Generates non-traditional custom barcodes using product details containing Name,
 
 ##Note
 
- Does not follow the Traditional Barcode System(requires a Custom Scanner)
+ Does not follow the Traditional Barcode System(requires a Custom Scanner).
+
