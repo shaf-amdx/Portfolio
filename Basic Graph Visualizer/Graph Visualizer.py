@@ -40,6 +40,7 @@ s.bgcolor('black')
 t.pencolor('white')
 t.speed(70)
 t.hideturtle()
+#Drawing the x and y axis
 t.forward(1000)
 t.home()
 t.backward(1000)
