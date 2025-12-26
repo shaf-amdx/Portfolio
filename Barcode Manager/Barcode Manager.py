@@ -38,6 +38,7 @@ def Print_Barcode(Name,Price,Date,Barcode,Hexadecimal_Code,Name_Filler="",Price_
         {"="*(len(Barcode)+2)}
         """)
 def Sort_Items(Data):
+    #Uses the Bubble sort mechanism
     Data=list(Data.items())
     for i in range(len(Data)-1):
         for j in range(len(Data)-i-1):
@@ -50,7 +51,7 @@ def Validate_Date(Date):
     for i in Date:
         if i.isdigit():
             continue
-        elif i in "/.-_ ":
+        elif i in "/.-_ ":#Handles seperator based inputs for dates
             Date_chr+=1
             if not chr_chosen:
                 Chosen_chr,chr_chosen=i,True
@@ -58,14 +59,14 @@ def Validate_Date(Date):
                 break
             if Date_chr==3:
                 break
-        elif i.isalpha():
+        elif i.isalpha():#Handles Text Based inputs for date
             Months={("January","Jan",31):"01",("February","Feb",28):"02",("March","Mar",31):"03",("April","Apr",30):"04",("May","May",31):"05",("June","Jun",30):"06",("July","Jul",31):"07",("Augu","Aug",31):"08",("September","Sept",30):"09",("October","Oct",31):"10",("November","Nov",30):"11",("December","Dec",31):"12"}
-            Date=(Date.lower().replace("st","").replace("nd","").replace("rd","").replace("th","").replace(",","").replace(".","").title()).split()                                         #We Have Augu instaed of August since the 'st' in August will get replaced
+            Date=(Date.lower().replace("st","").replace("nd","").replace("rd","").replace("th","").replace(",","").replace(".","").title()).split()                                         #We Have Augu instead of August since the 'st' in August will get replaced
             New_Date=["","",""]
             Days=0
             if len(Date)!=3:
                 return (Date,False)
-            for j in range(3):
+            for j in range(3):#range(3) since the text format includes 3 sections(day month year or month day year)
                 if j==2:
                     if Date[2].isdigit():
                         if len(Date[2])==2:
@@ -91,7 +92,7 @@ def Validate_Date(Date):
                     elif len(Date[j])==1 and Date[j].isdigit():
                         New_Date[0]="0"+Date[j]
             Date=New_Date[0]+"/"+New_Date[1]+"/"+New_Date[2]
-            if New_Date[1]=="02" and int(New_Date[2])%4==0:
+            if New_Date[1]=="02" and int(New_Date[2])%4==0:#Handles Leap Year Logic
                 Days=29
             if int(Date[:2])>Days or int(Date[3:5])>12:
                 return (Date,None)
@@ -106,7 +107,7 @@ def Validate_Date(Date):
             This is the format for the Date_map dictionary: 
                 Date_map={(1st separator index,2nd seperator index):(Possible lengths)}"""
             Date_map={(2,5):(8,10),(1,3):(6,8),(2,4):(7,9),(1,4):(7,9)}
-            First_chr_index=Date.find(Chosen_chr)
+            First_chr_index=Date.find(Chosen_chr)#The chr index refers to the index of the seperator used by the user
             Second_chr_index=Date.find(Chosen_chr,First_chr_index+1)
             if Second_chr_index==-1:
                 return (Date,False)
@@ -129,7 +130,7 @@ def Validate_Date(Date):
                         return(Date,None)
                     return (Date,True)
         else:
-            if len(Date) in [4,6,8]:
+            if len(Date) in [4,6,8]:#handles inputs like 1125 or 1 1 25 or 010125 or 01 01 25 which is later formatted into 01/01/2025
                 if len(Date)==4:
                     Date="0"+Date[0]+"/0"+Date[1]+"/20"+Date[2:]
                     #len=4 for 1/1/25
@@ -161,7 +162,7 @@ def Validate_Price(Price):
             if j in "X":
                 Price=Price.replace("X","*")
         Price=str(float(eval(Price)))
-        #The eval function is used for making the price field to have a calculation feature
+        #The eval function is used to make the price field have a calculator feature
         if float(Price)<0:
             Message("You cannot enter a negative value!",":")
             message_printed=True
@@ -582,7 +583,7 @@ for attempt in range(3):
     #This allows the user for 3 attempts
     Admin_Password="5e6d49f2e51518f1ca87ff5daafb22eecfad6f76ad4552b379a8a2c03baacec4"   #Password for admin : adMin@123 -----------+------>Password is given over here for the project submission
     Employee_Password="a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e"    #Password for employee : Hello World --+
-    Get_Password=hashlib.sha256(input(" Enter Password : ").encode('utf-8')).hexdigest()    #This type of password check is done to ensure encryption of passwords because anyone that has access to the code can break into the program easily
+    Get_Password=hashlib.sha256(input(" Enter Password (Mentioned in README.md): ").encode('utf-8')).hexdigest()    #This type of password check is done to ensure encryption of passwords because anyone that has access to the code can break into the program easily
     if Get_Password==Admin_Password:
         logs("Admin Logged in")
         break
