@@ -9,7 +9,10 @@ Generates non-traditional custom barcodes using product details containing Name,
  Includes features such as Creation, Searching, Updating, and Deletion.
  Enables Multiple Access levels for security purposes.
 
+##Technical Highlights
+
+ Implemented various logical input validations, such as Date validation and Price validation, to enable a wide range of input acceptance, ensuring user flexibility.
+
 ##Note
 
  Does not follow the Traditional Barcode System(requires a Custom Scanner).
-
