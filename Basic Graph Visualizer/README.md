@@ -11,3 +11,4 @@ Generates graphs of basic math functions.
 ##Note
 
  Creates an approximation of the graph of a function.
+ Only basic functions like trigonometric and exponential functions are supported.
