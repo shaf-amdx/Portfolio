@@ -16,3 +16,10 @@ Generates non-traditional custom barcodes using product details containing Name,
 ##Note
 
  Does not follow the Traditional Barcode System(requires a Custom Scanner).
+
+##Running the program:
+
+ Run the program using Python 3.6 or higher versions
+ You will be prompted for access level:
+  For admin access: Use the password 'adMin@123'
+  For employee access: Use the password 'Hello World'
