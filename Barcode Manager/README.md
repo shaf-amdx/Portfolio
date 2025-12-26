@@ -1,0 +1,14 @@
+#Barcode Manager
+
+Generates non-traditional custom barcodes using product details containing Name, Price, and Production Date.
+
+##Features
+
+ Uses the 'hashlib' module for generating fixed-length hexadecimal characters, which are converted into binary, where the 0's and 1's are mapped into │(U+2502) and ▌(U+258C).
+ The 'hashlib' module has been used for encoding passwords as well.
+ Includes features such as Creation, Searching, Updating, and Deletion.
+ Enables Multiple Access levels for security purposes.
+
+##Note
+
+ Does not follow the Traditional Barcode System(requires a Custom Scanner)
