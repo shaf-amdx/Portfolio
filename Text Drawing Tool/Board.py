@@ -5,6 +5,7 @@ t.hideturtle()
 s.bgcolor('black')
 t.pencolor('white')
 t.speed(0)
+#The functions below contain instructions for drawing various alphabets
 def A():
     t.penup()
     t.forward(30.595110958682476)
