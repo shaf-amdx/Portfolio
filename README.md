@@ -12,4 +12,5 @@ This repository contains a collection of personal Python programs that demonstra
 
   4.**Tic Tac Toe**: A classic two-player game built for users to play against a hardcoded bot.
 
-  5.**Graph Visualizer**: Helps the user visualize the behaviour of basic math functions by plotting specific points on a graph.
+  5.**Graph Visualizer**: Helps the user visualize the behaviour of math functions by plotting specific points on a graph.
+
