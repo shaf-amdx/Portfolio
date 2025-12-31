@@ -42,7 +42,6 @@ def graph(y):
         x_scale=1000
         y_scale=10
     t.penup()
-    print(y)
     while True:
         try:
             y1=eval(y.replace('x',f'({x})'))
@@ -75,6 +74,7 @@ def graph(y):
         finally:
             x+=0.1
     s.update()
+    print(y.replace('math.',''),' has been plotted!')
 draw_axis()
 s.update()
 func=input("Enter the function you would like to graph : ").strip().lower()
