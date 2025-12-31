@@ -31,7 +31,7 @@ def graph(y):
             y=y[:n+1]+'*'+y[n+1:]
             n+=1
         n+=1
-    y=y.replace('^','**').replace('sin','math.sin').replace('cos','math.cos').replace('tan','math.tan').replace('e**','math.exp').replace('log','math.log')
+    y=y.replace('^','**').replace('sin','math.sin').replace('cos','math.cos').replace('tan','math.tan').replace('e**','math.exp').replace('log','math.log').replace('pi','math.pi')
     x=-400
     for i in ['sin','cos','tan','cot','sec','cosec']:
         if i in y:
