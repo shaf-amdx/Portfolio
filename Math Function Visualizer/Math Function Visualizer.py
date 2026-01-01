@@ -38,14 +38,8 @@ def graph(y):
         if i in y:
             y=y.replace(i,'(math.'+i.replace('arcmath.','a')+')')
     x=-400
-    for i in ['sin','cos','tan','cot','sec','cosec']:#Setting scale for specific functions
-        if i in y:
-            x_scale=10
-            y_scale=70
-            break
-    else:
-        x_scale=10
-        y_scale=10
+    x_scale=50
+    y_scale=85
     t.penup()
     t.pendown()
     error_count=0
@@ -61,7 +55,7 @@ def graph(y):
                 x+=0.1
                 t.pendown()
                 continue
-            if abs((y_temp-y1)/(0.1))>=75:
+            if abs((y_temp-y1)/(0.1))>=80:
                 t.penup()
             else:
                 t.pendown()
