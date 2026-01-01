@@ -11,4 +11,4 @@ A basic interactive game demonstrating basic logic and graphics.
 
 ##Note
 
- Designed to practice algorithmic thinking and experiment with personal coding abilities.
+ Built to practice algorithmic thinking and experiment with personal coding abilities.
