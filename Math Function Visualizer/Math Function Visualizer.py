@@ -72,6 +72,12 @@ def graph(y):
     print(y.replace('math.',''),' has been plotted!')
 draw_axis()
 s.update()
-func=input("Enter the function you would like to graph (Use paranthesis to isolate the contents inside a function): ").strip().lower()
-graph(func)
+func=''
+while True:
+    print("(Enter 'exit' to close the program)")
+    func=input("Enter the function you would like to graph (Use paranthesis to isolate the contents inside a function): ").strip().lower()
+    if func=='exit':
+        break
+    else:
+        graph(func)
 turtle.done()
