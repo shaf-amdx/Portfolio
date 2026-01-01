@@ -34,7 +34,7 @@ def bot_play():
     while True:
         Last_key=False
         Algorithm_Used=False
-        for i in possible_wins:
+        for i in possible_wins:#Attack logic
             for _ in range(3):
                 if (i[0] in bot_positions and i[1] in bot_positions) and (i[2] not in bot_positions and i[2] not in player_positions):
                     bot_pos=i[2]
@@ -46,7 +46,7 @@ def bot_play():
                 ABC123[bot_pos]=Bot_Role
         if Algorithm_Used:
             break
-        for i in possible_wins:
+        for i in possible_wins:#Defence logic
             for _ in range(3):
                 if (i[0] in player_positions and i[1] in player_positions) and (i[2] not in bot_positions and i[2] not in player_positions):
                     bot_pos=i[2]

@@ -44,14 +44,14 @@ def game():
                     continue
                 Placed_row=None
                 Placed_row_index=None
-                if event.name in "aA":
+                if event.name in "aA":#moving the block leftwards
                     temp_pos=move(temp_pos,"l")
                     plane(pos,block,temp_pos['bs'])
-                elif event.name in "dD":
+                elif event.name in "dD":#moving the block rightwards
                     temp_pos=move(temp_pos,"r")
                     plane(pos,block,temp_pos['bs'])
-                elif event.name in "sS":
-                    for i in "ABCDEFGHIJ":
+                elif event.name in "sS":#releasing the block downwards
+                    for i in "ABCDEFGHIJ":#Collision check
                         for j in range(temp_pos['bs'],temp_pos['bs']+temp_pos['bl']):
                             if (pos.get(i))[j]=="|":
                                 Placed_row_index="ABCDEFGHIJ".find(i)-1
@@ -61,11 +61,11 @@ def game():
                         else:
                             continue
                         break
-                    if Placed_row_index==-1:
-                        raise Exception
+                    if Placed_row_index==-1:#check to ensure if a collision occurred in the top block
+                        raise Exception#Game over
                     elif Placed_row==None:
                         Placed_row='J'
-                    for i in range(temp_pos['bs'],temp_pos['bs']+temp_pos['bl']):
+                    for i in range(temp_pos['bs'],temp_pos['bs']+temp_pos['bl']):#Block placement
                         (pos[Placed_row])[i]="|"
                     plane(pos,block,temp_pos['bs'])
                     break
