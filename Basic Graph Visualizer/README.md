@@ -1,4 +1,4 @@
-#Graph Visualizer
+#Math Function Visualizer
 
 Generates graphs of basic math functions.
 
@@ -12,3 +12,4 @@ Generates graphs of basic math functions.
 
  Creates an approximation of the graph of a function.
  Handles Asymtopes
+
