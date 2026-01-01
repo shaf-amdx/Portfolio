@@ -32,36 +32,41 @@ def graph(y):
             n+=1
         n+=1
     y=y.replace('^','**').replace('sin','math.sin').replace('cos','math.cos').replace('tan','math.tan').replace('e**','(math.e)**').replace('log','math.log').replace('pi','math.pi')
+    if 'cosec' in y:
+        y=y.replace('math.cosec','cosec')
+    for i in ['arcmath.sin','arcmath.cos','arcmath.tan']:
+        if i in y:
+            y=y.replace(i,'(math.'+i.replace('arcmath.','a')+')')
     x=-400
     for i in ['sin','cos','tan','cot','sec','cosec']:#Setting scale for specific functions
         if i in y:
             x_scale=10
-            y_scale=100
+            y_scale=70
             break
     else:
-        x_scale=1000
+        x_scale=10
         y_scale=10
     t.penup()
-    while True:#Moving to the initial point
-        try:
-            y1=eval(y.replace('x',f'({x})'))
-            t.goto(x*x_scale,y1*y_scale)
-        except:
-            x+=0.1
-        else:
-            break
     t.pendown()
-    y_temp=eval(y.replace('x',f'({x})'))
     error_count=0
+    plotted=False
     while x<=400:#Plotting the points
         try:
             y1=eval(y.replace('x',f'({x})'))
-            if abs((y_temp-y1)/(0.1))>=50:
+            if not plotted:#Moving to the initial point
+                t.penup()
+                t.goto(x*x_scale,y1*y_scale)
+                plotted=True
+                y_temp=y1
+                x+=0.1
+                t.pendown()
+                continue
+            if abs((y_temp-y1)/(0.1))>=75:
                 t.penup()
             else:
                 t.pendown()
             y_temp=y1
-            t.goto(x*10,y1*100)
+            t.goto(x*x_scale,y1*y_scale)
         except:
             error_count+=1
         finally:
