@@ -193,7 +193,7 @@ def Create_Barcode(Data):#Collects data for generating new barcode data
         else:
             go_back=True
         while Name=="" or Price=="GOBACK":
-            Name=" ".join(input(f"\n\t Enter the name of the product : ").strip().lower().title().split())
+            Name=" ".join(input(f"\n\t Enter the name of the product : ").strip().lower().title().split())#Maintains proper spacing between words
             if Name=="":
                 Message("ENTERED FIELD IS EMPTY, PLEASE ENTER A VALID INPUT!",":")
             else:
@@ -269,9 +269,9 @@ def Search_Barcode(Data,Employee=False):#Searches for product details
              3.Exit
          Enter an option (1-3) : """).strip().lower().replace(".","").replace("'","").replace(",","").replace("/","").replace(" ","")
         print("\n\t ","-"*24)
-        if Search_Decision in ["1","productsname","name","1productsname","1name","2","hexadecimalcode","hexadecimal","2hexadecimalcode","2hexadecimal","code","2code"]:
+        if Search_Decision in ["1","productsname","name","1productsname","1name","2","hexadecimalcode","hexadecimal","2hexadecimalcode","2hexadecimal","code","2code"]:#Done for user flexibility
             Message("Note:Type 'go back' if you would like to go back from any operation","-")
-        if Search_Decision in ["1","productsname","name","1productsname","1name"]:
+        if Search_Decision in ["1","productsname","name","1productsname","1name"]:#Done for user flexibility
             while True:
                 Name=" ".join(input("\n\t Enter product's Name : ").strip().lower().title().split())
                 if Name=="":
@@ -286,7 +286,7 @@ def Search_Barcode(Data,Employee=False):#Searches for product details
                 if Name==value[0]:
                     Found,Price,Date,Barcode,Product_Code=True,value[1],value[2],value[3],hex(int(key,2))[2:].upper()
                     break
-        elif Search_Decision in ["2","hexadecimalbinarycode","2hexadecimalbinarycode","hexadecimalcode","hexadecimal","2hexadecimalcode","2hexadecimal","code","2code","binarycode","2binarycode","binary","2binary"]:
+        elif Search_Decision in ["2","hexadecimalbinarycode","2hexadecimalbinarycode","hexadecimalcode","hexadecimal","2hexadecimalcode","2hexadecimal","code","2code","binarycode","2binarycode","binary","2binary"]:#Done for user flexibility
             while True:
                 Code="".join(input("\n\t Enter product's Hexadecimal/Binary Code : ").strip().upper().split())
                 if Code=="":
@@ -328,7 +328,7 @@ def Delete_Barcode(Data):#Deletes desired data
             break
         Message("Note:Type 'go back' if you would like to go back from any operation","-")
         while True:
-            Name=" ".join(input("\n\t Enter product Name : ").strip().lower().title().split())
+            Name=" ".join(input("\n\t Enter product Name : ").strip().lower().title().split())#Maintains proper spacing between words
             if Name=="":
                 Message("ENTERED FIELD IS EMPTY, PLEASE ENTER A VALID INPUT!",":")
                 continue
@@ -387,9 +387,9 @@ def Update_Barcode(Data,Name=None):#Collected updated data and generates new bar
              3.Production date of the product
              4.Exit
          Enter option(1-4): """).strip().lower().replace(".","").replace("'","").replace(",","").replace(" ","")
-                    if Update_Option in ["1","name","nameoftheproduct","1nameoftheproduct","1name"]:
+                    if Update_Option in ["1","name","nameoftheproduct","1nameoftheproduct","1name"]:#Done for user flexibility
                         while True:
-                            New_Name=" ".join(input("\n\t Enter the new name of the product : ").strip().lower().title().split())
+                            New_Name=" ".join(input("\n\t Enter the new name of the product : ").strip().lower().title().split())#Maintains proper spacing between words
                             if New_Name=="":
                                 Message("ENTERED FIELD IS EMPTY, PLEASE ENTER A VALID INPUT!",":")
                                 continue
@@ -416,7 +416,7 @@ def Update_Barcode(Data,Name=None):#Collected updated data and generates new bar
                             Updated_Data[0],NameFiller=New_Name,"Updated "
                         if (Data.get(v))[0]==New_Name:
                             continue
-                    elif Update_Option in ["2","priceoftheproduct","price","2priceoftheproduct","2price"]:
+                    elif Update_Option in ["2","priceoftheproduct","price","2priceoftheproduct","2price"]:#Done for user flexibility
                         while True:
                             New_Price="".join(input("\n\t Enter the new price of the product (Only Digits) : ").strip().upper().split())
                             if New_Price=="GOBACK":
@@ -436,7 +436,7 @@ def Update_Barcode(Data,Name=None):#Collected updated data and generates new bar
                             Updated_Data[1]=New_Price
                             continue
                         Updated_Data[1],PriceFiller=New_Price,"Updated "
-                    elif Update_Option in ["3","productiondateoftheproduct","productiondate","date","3productiondateoftheproduct","3productiondate","3date"]:
+                    elif Update_Option in ["3","productiondateoftheproduct","productiondate","date","3productiondateoftheproduct","3productiondate","3date"]:#Done for user flexibility
                         while True:
                             New_Date=input("\n\t Enter the new production date of the product (Enter in dd/mm/yy or text format [Example: 1st Jan 2025]) : ").strip()
                             if New_Date=="":
@@ -511,17 +511,17 @@ def Main_Menu():#Main menu for admin
    6.Exit
   Enter an Option from 1-6 : """).strip().lower().replace(".","").replace("'","").replace(",","").replace(" ","")
         print("\n","="*100,"\n")
-        if Menu_Decision in ["1","createbarcode","create","1createbarcode","1create"]:
+        if Menu_Decision in ["1","createbarcode","create","1createbarcode","1create"]:#Done for user flexibility
             Create_Barcode(Data)
-        elif Menu_Decision in ["2","searchforproductsbarcode","search","2searchforproductsbarcode","2search"]:
+        elif Menu_Decision in ["2","searchforproductsbarcode","search","2searchforproductsbarcode","2search"]:#Done for user flexibility
             Search_Barcode(Data)
-        elif Menu_Decision in ["3","updateproductsbarcode","update","3updateproductsbarcode","3update"]:
+        elif Menu_Decision in ["3","updateproductsbarcode","update","3updateproductsbarcode","3update"]:#Done for user flexibility
             Update_Barcode(Data)
-        elif Menu_Decision in ["4","deleteproductsbarcode","delete","4deleteproductsbarcode","4delete"]:
+        elif Menu_Decision in ["4","deleteproductsbarcode","delete","4deleteproductsbarcode","4delete"]:#Done for user flexibility
             Delete_Barcode(Data)
-        elif Menu_Decision in ["5","readthelistofnamepriceandproductiondateofallitems","read","5readthelistofnamepriceandproductiondateofallitems","5read"]:
+        elif Menu_Decision in ["5","readthelistofnamepriceandproductiondateofallitems","read","5readthelistofnamepriceandproductiondateofallitems","5read"]:#Done for user flexibility
             list_items(Data)
-        elif Menu_Decision in ["6","exit","6exit","quit","6quit"]:
+        elif Menu_Decision in ["6","exit","6exit","quit","6quit"]:#Done for user flexibility
             logs("Logged out")
             break
         else:
@@ -538,9 +538,9 @@ def Employee_Menu():#Menu for employee (has less access and monitors datachecks 
    3.Exit
   Enter an Option from 1-3 : """).strip().lower().replace(".","").replace("'","").replace(",","").replace(" ","")
         print("\n","="*100,"\n")
-        if Menu_Decision in ["1","searchforproductsbarcode","search","1searchforproductsbarcode","1search"]:
+        if Menu_Decision in ["1","searchforproductsbarcode","search","1searchforproductsbarcode","1search"]:#Done for user flexibility
             Search_Barcode(Data,Employee=True)
-        elif Menu_Decision in ["2","readthelistofnamepriceandproductiondateofallitems","read","2readthelistofnamepriceandproductiondateofallitems","2read"]:
+        elif Menu_Decision in ["2","readthelistofnamepriceandproductiondateofallitems","read","2readthelistofnamepriceandproductiondateofallitems","2read"]:#Done for user flexibility
             list_items(Data,Employee=True)
         elif Menu_Decision in ["3","exit","3exit","quit","3quit"]:
             logs("Employee Logged out")
