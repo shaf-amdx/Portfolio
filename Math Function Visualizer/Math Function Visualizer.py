@@ -27,11 +27,11 @@ def graph(y):
     t.home()
     n=0
     while n<len(y)-1:
-        if (y[n].isdigit() and y[n+1].isalpha()) or (y[n+1].isdigit() and y[n].isalpha()) or ((y[n].isdigit() or y[n].isalpha()) and y[n+1]=='('):#Adding a missing '*' between numbers ,variables and paranthesis
+        if (y[n].isdigit() and y[n+1].isalpha()) or (y[n+1].isdigit() and y[n].isalpha()):#Adding a missing '*' between numbers ,variables
             y=y[:n+1]+'*'+y[n+1:]
             n+=1
         n+=1
-    y=y.replace('^','**').replace('sin','math.sin').replace('cos','math.cos').replace('tan','math.tan').replace('e**','math.exp').replace('log','math.log').replace('pi','math.pi')
+    y=y.replace('^','**').replace('sin','math.sin').replace('cos','math.cos').replace('tan','math.tan').replace('e**','(math.e)**').replace('log','math.log').replace('pi','math.pi')
     x=-400
     for i in ['sin','cos','tan','cot','sec','cosec']:#Setting scale for specific functions
         if i in y:
@@ -52,6 +52,7 @@ def graph(y):
             break
     t.pendown()
     y_temp=eval(y.replace('x',f'({x})'))
+    error_count=0
     while x<=400:#Plotting the points
         try:
             y1=eval(y.replace('x',f'({x})'))
@@ -62,9 +63,11 @@ def graph(y):
             y_temp=y1
             t.goto(x*10,y1*100)
         except:
-            pass
+            error_count+=1
         finally:
             x+=0.1
+    if error_count==8000:
+        print("Function not defined")
     s.update()
     print(y.replace('math.',''),' has been plotted!')
 draw_axis()
