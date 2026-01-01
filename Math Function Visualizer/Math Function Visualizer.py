@@ -51,19 +51,11 @@ def graph(y):
         else:
             break
     t.pendown()
-    n=0
-    while n<800:
-        try:
-            min_y,max_y=min(eval(y.replace('x',f'({x})')) for x in range(-400+n,401)),max(eval(y.replace('x',f'({x})')) for x in range(-400,401))
-        except:
-            n+=1
-        else:
-            break
     y_temp=eval(y.replace('x',f'({x})'))
     while x<=400:
         try:
             y1=eval(y.replace('x',f'({x})'))
-            if abs((y_temp-y1)/(0.1))>=30:
+            if abs((y_temp-y1)/(0.1))>=50:
                 t.penup()
             else:
                 t.pendown()
