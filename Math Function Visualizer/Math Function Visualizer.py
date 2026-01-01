@@ -27,13 +27,13 @@ def graph(y):
     t.home()
     n=0
     while n<len(y)-1:
-        if y[n].isdigit() and y[n+1].isalpha():
+        if (y[n].isdigit() and y[n+1].isalpha()) or (y[n+1].isdigit() and y[n].isalpha()):#Adding a missing '*' between numbers and variables
             y=y[:n+1]+'*'+y[n+1:]
             n+=1
         n+=1
     y=y.replace('^','**').replace('sin','math.sin').replace('cos','math.cos').replace('tan','math.tan').replace('e**','math.exp').replace('log','math.log').replace('pi','math.pi')
     x=-400
-    for i in ['sin','cos','tan','cot','sec','cosec']:
+    for i in ['sin','cos','tan','cot','sec','cosec']:#Setting scale for specific functions
         if i in y:
             x_scale=10
             y_scale=100
@@ -42,7 +42,7 @@ def graph(y):
         x_scale=1000
         y_scale=10
     t.penup()
-    while True:
+    while True:#Moving to the initial point
         try:
             y1=eval(y.replace('x',f'({x})'))
             t.goto(x*x_scale,y1*y_scale)
@@ -52,7 +52,7 @@ def graph(y):
             break
     t.pendown()
     y_temp=eval(y.replace('x',f'({x})'))
-    while x<=400:
+    while x<=400:#Plotting the points
         try:
             y1=eval(y.replace('x',f'({x})'))
             if abs((y_temp-y1)/(0.1))>=50:
