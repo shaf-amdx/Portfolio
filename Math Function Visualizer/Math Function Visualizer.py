@@ -27,7 +27,7 @@ def graph(y):
     t.home()
     n=0
     while n<len(y)-1:
-        if (y[n].isdigit() and y[n+1].isalpha()) or (y[n+1].isdigit() and y[n].isalpha()):#Adding a missing '*' between numbers and variables
+        if (y[n].isdigit() and y[n+1].isalpha()) or (y[n+1].isdigit() and y[n].isalpha()) or ((y[n].isdigit() or y[n].isalpha()) and y[n+1]=='('):#Adding a missing '*' between numbers ,variables and paranthesis
             y=y[:n+1]+'*'+y[n+1:]
             n+=1
         n+=1
