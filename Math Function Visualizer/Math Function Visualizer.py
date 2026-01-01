@@ -27,7 +27,7 @@ def graph(y):
     t.home()
     n=0
     while n<len(y)-1:
-        if (y[n].isdigit() and y[n+1].isalpha()) or (y[n+1].isdigit() and y[n].isalpha()):#Adding a missing '*' between numbers ,variables
+        if (y[n].isdigit() and y[n+1].isalpha()) or (y[n+1].isdigit() and y[n].isalpha()) or (y[n]==')' and y[n+1]=='('):#Adding a missing '*' between numbers ,variables and paranthesis for user flexibility
             y=y[:n+1]+'*'+y[n+1:]
             n+=1
         n+=1
@@ -67,6 +67,7 @@ def graph(y):
             x+=0.1
     if error_count==8000:
         print("Function not defined")
+        return
     s.update()
     print(y.replace('math.',''),' has been plotted!')
 draw_axis()
