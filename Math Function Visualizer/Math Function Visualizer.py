@@ -37,6 +37,24 @@ def graph(y):
     for i in ['arcmath.sin','arcmath.cos','arcmath.tan']:
         if i in y:
             y=y.replace(i,'(math.'+i.replace('arcmath.','a')+')')
+    if '|' in y:
+        if not y.count('|')%2==0:
+            print("Invalid input!")
+            return
+        else:
+            open_mod=True
+            temp_eqn=''
+            for i in range(len(y)):
+                if y[i]=='|':
+                    if open_mod:
+                        temp_eqn+='abs('
+                        open_mod=False
+                    else:
+                        temp_eqn+=')'
+                        open_mod=True
+                else:
+                    temp_eqn+=y[i]
+            y=temp_eqn
     x=-400
     x_scale=50
     y_scale=85
@@ -69,7 +87,7 @@ def graph(y):
         print("Function not defined")
         return
     s.update()
-    print(y.replace('math.',''),' has been plotted!')
+    print(y.replace('math.','').replace('abs','mod'),' has been plotted!')
 draw_axis()
 s.update()
 func=input("Enter the function you would like to graph (Use paranthesis to isolate the contents inside a function): ").strip().lower()
