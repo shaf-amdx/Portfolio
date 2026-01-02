@@ -55,7 +55,7 @@ def graph(y):
                 x+=0.1
                 t.pendown()
                 continue
-            if abs((y_temp-y1)/(0.1))>=80:
+            if abs((y_temp-y1)/(0.1))>=100:
                 t.penup()
             else:
                 t.pendown()
