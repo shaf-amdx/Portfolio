@@ -87,7 +87,7 @@ def graph(y):
         print("Function not defined")
         return
     s.update()
-    print(y.replace('math.','').replace('abs','mod'),' has been plotted!')
+    print(y.replace('math.',''),' has been plotted!')
 draw_axis()
 s.update()
 func=input("Enter the function you would like to graph (Use paranthesis to isolate the contents inside a function): ").strip().lower()
