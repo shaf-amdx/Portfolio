@@ -90,6 +90,6 @@ def graph(y):
     print(y.replace('math.',''),' has been plotted!')
 draw_axis()
 s.update()
-func=input("Enter the function you would like to graph (Use paranthesis to isolate the contents inside a function): ").strip().lower()
+func=input("Enter the function you would like to graph (Use paranthesis to isolate the contents inside a function and to seperate two functions): ").strip().lower()
 graph(func)
 turtle.done()
