@@ -14,3 +14,4 @@ This repository contains a collection of personal Python programs that demonstra
 
   5.**Tic Tac Toe**: A classic two-player game built for users to play against a hardcoded bot.
 
+  6.**Snake Game**: A classic snake game inspired by Nokia.
